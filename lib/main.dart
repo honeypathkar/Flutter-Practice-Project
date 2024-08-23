@@ -38,11 +38,64 @@ class _MyHomePageState extends State<MyHomePage> {
           title: Text(widget.title),
         ),
         // ignore: sized_box_for_whitespace
-        body: Container(
+        body: Column(
+          // mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                // ignore: sized_box_for_whitespace
+                Container(
+                  width: 300,
+                  height: 250,
+                  child: Image.asset('assets/images/weather.png'),
+                ),
+                // ignore: sized_box_for_whitespace
+                Container(
+                  width: 300,
+                  height: 250,
+                  child: Image.asset('assets/images/imagegallery.png'),
+                ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                OutlinedButton(
+                    onPressed: () {
+                      // ignore: avoid_print
+                      print('Outlined Button clicked');
+                    },
+                    child: const Text('Click Me')),
+                ElevatedButton(
+                    onPressed: () {
+                      // ignore: avoid_print
+                      print('Elevated Button Clicked!');
+                    },
+                    child: const Text(
+                      'Click Here',
+                    )),
+                TextButton(
+                  onPressed: () {
+                    // ignore: avoid_print
+                    print("Button Presed");
+                  },
+                  child: const Text('Click me'),
+                  onLongPress: () {
+                    // ignore: avoid_print
+                    print('Long Pressed');
+                  },
+                ),
+              ],
+            )
+          ],
+        ) /* Container(
           width: 300,
           height: 300,
           child: Image.asset('assets/images/imagegallery.png'),
-        ));
+        ) */
+        );
     /*  child: OutlinedButton(
               onPressed: () {
                 // ignore: avoid_print
