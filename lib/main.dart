@@ -30,6 +30,12 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  int click = 0;
+
+  int clickUp() {
+    return click++;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,17 +52,30 @@ class _MyHomePageState extends State<MyHomePage> {
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 // ignore: sized_box_for_whitespace
-                Container(
-                  width: 300,
-                  height: 250,
-                  child: Image.asset('assets/images/weather.png'),
+                InkWell(
+                  onTap: () {
+                    clickUp();
+                    // ignore: avoid_print
+                    print('You Have clicked image $click');
+                  },
+                  onLongPress: () {
+                    click = 0;
+                    // ignore: avoid_print
+                    print('Long Pressed on Image');
+                  },
+                  // ignore: sized_box_for_whitespace
+                  child: Container(
+                    width: 300,
+                    height: 250,
+                    child: Image.asset('assets/images/weather.png'),
+                  ),
                 ),
                 // ignore: sized_box_for_whitespace
                 Container(
                   width: 300,
                   height: 250,
                   child: Image.asset('assets/images/imagegallery.png'),
-                ),
+                )
               ],
             ),
             Row(
