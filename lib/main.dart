@@ -38,7 +38,32 @@ class _MyHomePageState extends State<MyHomePage> {
           title: Text(widget.title),
         ),
         body: Center(
-          child: Container(
+          child: OutlinedButton(
+              onPressed: () {
+                // ignore: avoid_print
+                print('Outlined Button clicked');
+              },
+              child: const Text('Click Me')),
+          /* child: ElevatedButton(
+              onPressed: () {
+                // ignore: avoid_print
+                print('Elevated Button Clicked!');
+              },
+              child: const Text(
+                'Click Here',
+              )), */
+          /* child: TextButton(
+            onPressed: () {
+              // ignore: avoid_print
+              print("Button Presed");
+            },
+            child: const Text('Click me'),
+            onLongPress: () {
+              // ignore: avoid_print
+              print('Long Pressed');
+            },
+          ), */
+          /*  child: Container(
             width: 200,
             height: 200,
             color: Colors.cyan,
@@ -51,7 +76,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     fontWeight: FontWeight.w600),
               ),
             ),
-          ),
+          ), */
         ));
   }
 }
