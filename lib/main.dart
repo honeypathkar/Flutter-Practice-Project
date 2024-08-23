@@ -37,14 +37,19 @@ class _MyHomePageState extends State<MyHomePage> {
           backgroundColor: Theme.of(context).colorScheme.inversePrimary,
           title: Text(widget.title),
         ),
-        body: Center(
-          child: OutlinedButton(
+        // ignore: sized_box_for_whitespace
+        body: Container(
+          width: 300,
+          height: 300,
+          child: Image.asset('assets/images/imagegallery.png'),
+        ));
+    /*  child: OutlinedButton(
               onPressed: () {
                 // ignore: avoid_print
                 print('Outlined Button clicked');
               },
-              child: const Text('Click Me')),
-          /* child: ElevatedButton(
+              child: const Text('Click Me')), */
+    /* child: ElevatedButton(
               onPressed: () {
                 // ignore: avoid_print
                 print('Elevated Button Clicked!');
@@ -52,7 +57,7 @@ class _MyHomePageState extends State<MyHomePage> {
               child: const Text(
                 'Click Here',
               )), */
-          /* child: TextButton(
+    /* child: TextButton(
             onPressed: () {
               // ignore: avoid_print
               print("Button Presed");
@@ -63,7 +68,7 @@ class _MyHomePageState extends State<MyHomePage> {
               print('Long Pressed');
             },
           ), */
-          /*  child: Container(
+    /*  child: Container(
             width: 200,
             height: 200,
             color: Colors.cyan,
@@ -77,6 +82,5 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
           ), */
-        ));
   }
 }
