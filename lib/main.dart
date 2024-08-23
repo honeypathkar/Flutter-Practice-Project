@@ -48,35 +48,45 @@ class _MyHomePageState extends State<MyHomePage> {
           // mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Column(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                // ignore: sized_box_for_whitespace
-                InkWell(
-                  onTap: () {
-                    clickUp();
-                    // ignore: avoid_print
-                    print('You Have clicked image $click');
-                  },
-                  onLongPress: () {
-                    click = 0;
-                    // ignore: avoid_print
-                    print('Long Pressed on Image');
-                  },
-                  // ignore: sized_box_for_whitespace
-                  child: Container(
-                    width: 300,
-                    height: 250,
-                    child: Image.asset('assets/images/weather.png'),
-                  ),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              // ignore: prefer_const_constructors
+              child: Padding(
+                padding: const EdgeInsets.all(20),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: [
+                    // ignore: sized_box_for_whitespace
+                    InkWell(
+                      onTap: () {
+                        clickUp();
+                        // ignore: avoid_print
+                        print('You Have clicked image $click');
+                      },
+                      onLongPress: () {
+                        click = 0;
+                        // ignore: avoid_print
+                        print('Long Pressed on Image');
+                      },
+                      // ignore: sized_box_for_whitespace
+                      child: Container(
+                        width: 300,
+                        height: 250,
+                        child: Image.asset('assets/images/weather.png'),
+                      ),
+                    ),
+                    // ignore: sized_box_for_whitespace
+                    Padding(
+                        padding: const EdgeInsets.only(left: 20),
+                        // ignore: sized_box_for_whitespace
+                        child: Container(
+                          width: 300,
+                          height: 250,
+                          child: Image.asset('assets/images/imagegallery.png'),
+                        ))
+                  ],
                 ),
-                // ignore: sized_box_for_whitespace
-                Container(
-                  width: 300,
-                  height: 250,
-                  child: Image.asset('assets/images/imagegallery.png'),
-                )
-              ],
+              ),
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
