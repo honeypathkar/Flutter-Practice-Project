@@ -30,11 +30,15 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int click = 0;
-
-  int clickUp() {
-    return click++;
-  }
+  var arrName = [
+    'Honey',
+    'Shivansh',
+    'Harsh',
+    'Gaurav',
+    'Shivam',
+    'Shubham',
+    'Nikhil'
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -44,125 +48,16 @@ class _MyHomePageState extends State<MyHomePage> {
           title: Text(widget.title),
         ),
         // ignore: sized_box_for_whitespace
-        body: Column(
-          // mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            SingleChildScrollView(
-              scrollDirection: Axis.horizontal,
-              // ignore: prefer_const_constructors
-              child: Padding(
-                padding: const EdgeInsets.all(20),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    // ignore: sized_box_for_whitespace
-                    InkWell(
-                      onTap: () {
-                        clickUp();
-                        // ignore: avoid_print
-                        print('You Have clicked image $click');
-                      },
-                      onLongPress: () {
-                        click = 0;
-                        // ignore: avoid_print
-                        print('Long Pressed on Image');
-                      },
-                      // ignore: sized_box_for_whitespace
-                      child: Container(
-                        width: 300,
-                        height: 250,
-                        child: Image.asset('assets/images/weather.png'),
-                      ),
-                    ),
-                    // ignore: sized_box_for_whitespace
-                    Padding(
-                        padding: const EdgeInsets.only(left: 20),
-                        // ignore: sized_box_for_whitespace
-                        child: Container(
-                          width: 300,
-                          height: 250,
-                          child: Image.asset('assets/images/imagegallery.png'),
-                        ))
-                  ],
-                ),
-              ),
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                OutlinedButton(
-                    onPressed: () {
-                      // ignore: avoid_print
-                      print('Outlined Button clicked');
-                    },
-                    child: const Text('Click Me')),
-                ElevatedButton(
-                    onPressed: () {
-                      // ignore: avoid_print
-                      print('Elevated Button Clicked!');
-                    },
-                    child: const Text(
-                      'Click Here',
-                    )),
-                TextButton(
-                  onPressed: () {
-                    // ignore: avoid_print
-                    print("Button Presed");
-                  },
-                  child: const Text('Click me'),
-                  onLongPress: () {
-                    // ignore: avoid_print
-                    print('Long Pressed');
-                  },
-                ),
-              ],
-            )
-          ],
-        ) /* Container(
-          width: 300,
-          height: 300,
-          child: Image.asset('assets/images/imagegallery.png'),
-        ) */
-        );
-    /*  child: OutlinedButton(
-              onPressed: () {
-                // ignore: avoid_print
-                print('Outlined Button clicked');
-              },
-              child: const Text('Click Me')), */
-    /* child: ElevatedButton(
-              onPressed: () {
-                // ignore: avoid_print
-                print('Elevated Button Clicked!');
-              },
-              child: const Text(
-                'Click Here',
-              )), */
-    /* child: TextButton(
-            onPressed: () {
-              // ignore: avoid_print
-              print("Button Presed");
-            },
-            child: const Text('Click me'),
-            onLongPress: () {
-              // ignore: avoid_print
-              print('Long Pressed');
-            },
-          ), */
-    /*  child: Container(
-            width: 200,
-            height: 200,
-            color: Colors.cyan,
-            child: const Center(
-              child: Text(
-                'Hello World',
-                style: TextStyle(
-                    fontSize: 25,
-                    color: Colors.white,
-                    fontWeight: FontWeight.w600),
-              ),
-            ),
-          ), */
+        body: ListView.builder(
+          scrollDirection: Axis.horizontal,
+          itemBuilder: (context, index) {
+            return Padding(
+                padding: const EdgeInsets.all(5.0),
+                child: Text(arrName[index],
+                    style: const TextStyle(
+                        fontSize: 20, fontWeight: FontWeight.bold)));
+          },
+          itemCount: arrName.length,
+        ));
   }
 }
