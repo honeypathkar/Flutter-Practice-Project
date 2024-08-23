@@ -12,9 +12,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color.fromARGB(255, 246, 21, 21),
-        ),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.cyan),
         useMaterial3: true,
       ),
       home: const MyHomePage(title: 'Home'),
@@ -41,11 +39,17 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
         body: Center(
           child: Container(
-            width: 100,
-            height: 100,
+            width: 200,
+            height: 200,
             color: Colors.cyan,
             child: const Center(
-              child: Text('Hello World'),
+              child: Text(
+                'Hello World',
+                style: TextStyle(
+                    fontSize: 25,
+                    color: Colors.white,
+                    fontWeight: FontWeight.w600),
+              ),
             ),
           ),
         ));
