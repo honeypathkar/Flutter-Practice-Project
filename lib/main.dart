@@ -41,7 +41,17 @@ class MyHomePage extends StatelessWidget {
         body: ListView.builder(
           itemBuilder: (context, index) {
             return ListTile(
-              leading: Text('${index + 1}'),
+              leading: CircleAvatar(
+                // ignore: sort_child_properties_last
+                child: Text(
+                  // ignore: unnecessary_string_interpolations
+                  '${arrName[index][0]}',
+                  style: const TextStyle(
+                      fontSize: 15, fontWeight: FontWeight.bold),
+                ),
+                backgroundColor: Colors.grey,
+                radius: 25,
+              ),
               title: Text(arrName[index]),
               subtitle: const Text('Number'),
               trailing: const Icon(Icons.signal_wifi_4_bar),
