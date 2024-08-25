@@ -47,12 +47,17 @@ class MyHomePage extends StatelessWidget {
                   // ignore: unnecessary_string_interpolations
                   '${arrName[index][0]}',
                   style: const TextStyle(
-                      fontSize: 15, fontWeight: FontWeight.bold),
+                      fontSize: 15,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'NerkoOne'),
                 ),
                 backgroundColor: Colors.grey,
                 radius: 25,
               ),
-              title: Text(arrName[index]),
+              title: Text(
+                arrName[index],
+                style: const TextStyle(fontFamily: 'NerkoOne'),
+              ),
               subtitle: const Text('Number'),
               trailing: const Icon(Icons.signal_wifi_4_bar),
             );
