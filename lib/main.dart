@@ -28,6 +28,7 @@ class MyFlutterApp extends StatelessWidget {
 
 // ignore: use_key_in_widget_constructors, must_be_immutable
 class MyHomePage extends StatelessWidget {
+  var emailText = TextEditingController();
   var arrName = [
     'Honey',
     'Shivansh',
@@ -37,6 +38,7 @@ class MyHomePage extends StatelessWidget {
     'Shubham',
     'Nikhil'
   ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -44,29 +46,27 @@ class MyHomePage extends StatelessWidget {
           title: const Text("Home"),
           backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         ),
-        body: ListView.builder(
-          itemBuilder: (context, index) {
-            return Card(
-                elevation: 5,
-                child: ListTile(
-                  leading: CircleAvatar(
-                    // ignore: sort_child_properties_last
-                    child: Text(
-                        // ignore: unnecessary_string_interpolations
-                        '☺️',
-                        style: Theme.of(context).textTheme.displayLarge),
-                    backgroundColor: Colors.grey,
-                    radius: 25,
+        body: Center(
+            // ignore: sized_box_for_whitespace
+            child: Container(
+                width: 300,
+                child: TextField(
+                  controller: emailText,
+                  keyboardType: TextInputType.phone,
+                  // enabled: false,
+                  decoration: InputDecoration(
+                    hintText: "Enter email",
+                    border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(11)),
+                    suffixIcon: IconButton(
+                        onPressed: () {
+                          String uMail = emailText.text.toString();
+                          // ignore: avoid_print
+                          print("User email: $uMail");
+                        },
+                        icon: const Icon(Icons.abc_sharp)),
+                    // prefixText: "Enter user name"),
                   ),
-                  title: Text(
-                    arrName[index],
-                    style: Theme.of(context).textTheme.displayLarge,
-                  ),
-                  subtitle: const Text('Number'),
-                  trailing: const Icon(Icons.signal_wifi_4_bar),
-                ));
-          },
-          itemCount: arrName.length,
-        ));
+                ))));
   }
 }
