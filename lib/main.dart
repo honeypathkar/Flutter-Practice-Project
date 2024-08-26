@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 void main() {
   runApp(MyFlutterApp());
@@ -12,9 +13,14 @@ class MyFlutterApp extends StatelessWidget {
       title: "Flutter Demo App",
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.indigo),
-        useMaterial3: true,
-      ),
+          colorScheme: ColorScheme.fromSeed(
+              seedColor: const Color.fromARGB(255, 95, 221, 228)),
+          useMaterial3: true,
+          textTheme: const TextTheme(
+              displayLarge: TextStyle(
+                  fontSize: 20,
+                  fontFamily: "IOS",
+                  fontWeight: FontWeight.w100))),
       home: MyHomePage(),
     );
   }
@@ -40,27 +46,25 @@ class MyHomePage extends StatelessWidget {
         ),
         body: ListView.builder(
           itemBuilder: (context, index) {
-            return ListTile(
-              leading: CircleAvatar(
-                // ignore: sort_child_properties_last
-                child: Text(
-                  // ignore: unnecessary_string_interpolations
-                  '${arrName[index][0]}',
-                  style: const TextStyle(
-                      fontSize: 15,
-                      fontWeight: FontWeight.bold,
-                      fontFamily: 'NerkoOne'),
-                ),
-                backgroundColor: Colors.grey,
-                radius: 25,
-              ),
-              title: Text(
-                arrName[index],
-                style: const TextStyle(fontFamily: 'NerkoOne'),
-              ),
-              subtitle: const Text('Number'),
-              trailing: const Icon(Icons.signal_wifi_4_bar),
-            );
+            return Card(
+                elevation: 5,
+                child: ListTile(
+                  leading: CircleAvatar(
+                    // ignore: sort_child_properties_last
+                    child: Text(
+                        // ignore: unnecessary_string_interpolations
+                        '☺️',
+                        style: Theme.of(context).textTheme.displayLarge),
+                    backgroundColor: Colors.grey,
+                    radius: 25,
+                  ),
+                  title: Text(
+                    arrName[index],
+                    style: Theme.of(context).textTheme.displayLarge,
+                  ),
+                  subtitle: const Text('Number'),
+                  trailing: const Icon(Icons.signal_wifi_4_bar),
+                ));
           },
           itemCount: arrName.length,
         ));
