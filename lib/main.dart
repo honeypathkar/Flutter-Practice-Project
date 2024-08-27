@@ -34,7 +34,18 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  var time = DateTime.now();
+  // var time = DateTime.now();
+  var colors = [
+    Colors.pink,
+    Colors.red,
+    Colors.deepPurple,
+    Colors.indigoAccent,
+    Colors.yellow,
+    Colors.green,
+    Colors.blue,
+    Colors.purple,
+    Colors.indigo
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -46,31 +57,52 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         // ignore: sized_box_for_whitespace, avoid_unnecessary_containers
         child: Container(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const Text(
-                'Select Time',
-                style: TextStyle(fontSize: 20),
-              ),
-              ElevatedButton(
-                onPressed: () async {
-                  // ignore: unused_local_variable
-                  TimeOfDay? timePicker = await showTimePicker(
-                      context: context,
-                      initialTime: TimeOfDay.now(),
-                      initialEntryMode: TimePickerEntryMode.input);
-                  if (timePicker != null) {
-                    // ignore: avoid_print
-                    print(
-                        'Time selected is ${timePicker.hour}:${timePicker.minute}');
-                  }
-                },
-                child: const Text('Select Time'),
-              ),
-            ],
-          ),
-        ),
+            child: GridView.builder(
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2, crossAxisSpacing: 10, mainAxisSpacing: 10),
+          itemBuilder: (context, index) {
+            return Container(
+              color: colors[index],
+            );
+          },
+          itemCount: colors.length,
+        )
+
+            /* GridView.count(
+          crossAxisCount: 3,
+          crossAxisSpacing: 10,
+          mainAxisSpacing: 10,
+          children: [
+            Container(
+              color: Colors.indigo,
+            ),
+            Container(
+              color: Colors.green,
+            ),
+            Container(
+              color: Colors.purple,
+            ),
+            Container(
+              color: Colors.red,
+            ),
+            Container(
+              color: Colors.pink,
+            ),
+            Container(
+              color: Colors.grey,
+            ),
+            Container(
+              color: Colors.lightBlue,
+            ),
+            Container(
+              color: Colors.indigoAccent,
+            ),
+            Container(
+              color: Colors.deepPurple,
+            )
+          ],
+        ) */
+            ),
       ),
     );
   }
