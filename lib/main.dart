@@ -1,72 +1,70 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+// ignore: unused_import
+import 'package:intl/intl.dart';
 
 void main() {
-  runApp(MyFlutterApp());
+  runApp(const MyApp());
 }
 
-// ignore: use_key_in_widget_constructors
-class MyFlutterApp extends StatelessWidget {
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "Flutter Demo App",
-      debugShowCheckedModeBanner: false,
+      title: 'Flutter Demo',
       theme: ThemeData(
-          colorScheme: ColorScheme.fromSeed(
-              seedColor: const Color.fromARGB(255, 95, 221, 228)),
-          useMaterial3: true,
-          textTheme: const TextTheme(
-              displayLarge: TextStyle(
-                  fontSize: 20,
-                  fontFamily: "IOS",
-                  fontWeight: FontWeight.w100))),
-      home: MyHomePage(),
+        colorScheme: ColorScheme.fromSeed(
+          seedColor: const Color.fromARGB(255, 246, 21, 21),
+        ),
+        useMaterial3: true,
+      ),
+      home: const MyHomePage(title: 'Home'),
     );
   }
 }
 
-// ignore: use_key_in_widget_constructors, must_be_immutable
-class MyHomePage extends StatelessWidget {
-  var emailText = TextEditingController();
-  var arrName = [
-    'Honey',
-    'Shivansh',
-    'Harsh',
-    'Gaurav',
-    'Shivam',
-    'Shubham',
-    'Nikhil'
-  ];
+class MyHomePage extends StatefulWidget {
+  const MyHomePage({super.key, required this.title});
+
+  final String title;
+
+  @override
+  State<MyHomePage> createState() => _MyHomePageState();
+}
+
+class _MyHomePageState extends State<MyHomePage> {
+  var time = DateTime.now();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text("Home"),
-          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+      appBar: AppBar(
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        title: Text(widget.title),
+      ),
+      body: Center(
+        // ignore: sized_box_for_whitespace, avoid_unnecessary_containers
+        child: Container(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Text(
+                'Current Time: ${DateFormat('jms').format(time)}',
+                style: const TextStyle(fontSize: 20),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  setState(() {
+                    time = DateTime.now();
+                  });
+                },
+                child: const Text('Update Time'),
+              ),
+            ],
+          ),
         ),
-        body: Center(
-            // ignore: sized_box_for_whitespace
-            child: Container(
-                width: 300,
-                child: TextField(
-                  controller: emailText,
-                  keyboardType: TextInputType.phone,
-                  // enabled: false,
-                  decoration: InputDecoration(
-                    hintText: "Enter email",
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(11)),
-                    suffixIcon: IconButton(
-                        onPressed: () {
-                          String uMail = emailText.text.toString();
-                          // ignore: avoid_print
-                          print("User email: $uMail");
-                        },
-                        icon: const Icon(Icons.abc_sharp)),
-                    // prefixText: "Enter user name"),
-                  ),
-                ))));
+      ),
+    );
   }
 }
