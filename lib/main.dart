@@ -49,17 +49,24 @@ class _MyHomePageState extends State<MyHomePage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
-                'Current Time: ${DateFormat('jms').format(time)}',
-                style: const TextStyle(fontSize: 20),
+              const Text(
+                'Select Time',
+                style: TextStyle(fontSize: 20),
               ),
               ElevatedButton(
-                onPressed: () {
-                  setState(() {
-                    time = DateTime.now();
-                  });
+                onPressed: () async {
+                  // ignore: unused_local_variable
+                  TimeOfDay? timePicker = await showTimePicker(
+                      context: context,
+                      initialTime: TimeOfDay.now(),
+                      initialEntryMode: TimePickerEntryMode.input);
+                  if (timePicker != null) {
+                    // ignore: avoid_print
+                    print(
+                        'Time selected is ${timePicker.hour}:${timePicker.minute}');
+                  }
                 },
-                child: const Text('Update Time'),
+                child: const Text('Select Time'),
               ),
             ],
           ),
