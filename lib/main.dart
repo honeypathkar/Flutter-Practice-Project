@@ -54,62 +54,23 @@ class _MyHomePageState extends State<MyHomePage> {
           backgroundColor: Theme.of(context).colorScheme.inversePrimary,
           title: Text(widget.title),
         ),
-        // ignore: avoid_unnecessary_containers, sized_box_for_whitespace
-        body: Container(
-          width: double.infinity,
-          child: Wrap(
-            alignment: WrapAlignment.spaceEvenly,
-            spacing: 11,
-            runSpacing: 11,
-            children: [
-              Container(
-                width: 100,
-                height: 100,
-                color: Colors.indigo,
-              ),
-              Container(
-                width: 100,
-                height: 100,
-                color: Colors.green,
-              ),
-              Container(
-                width: 100,
-                height: 100,
-                color: Colors.purple,
-              ),
-              Container(
-                width: 100,
-                height: 100,
-                color: Colors.red,
-              ),
-              Container(
-                width: 100,
-                height: 100,
-                color: Colors.pink,
-              ),
-              Container(
-                width: 100,
-                height: 100,
-                color: Colors.grey,
-              ),
-              Container(
-                width: 100,
-                height: 100,
-                color: Colors.lightBlue,
-              ),
-              Container(
-                width: 100,
-                height: 100,
-                color: Colors.indigoAccent,
-              ),
-              Container(
-                width: 100,
-                height: 100,
-                color: Colors.deepPurple,
-              )
-            ],
-          ),
-        )
+        body: Center(
+            child: SizedBox(
+                child: RichText(
+                    text: const TextSpan(children: [
+          TextSpan(
+              text: "Hello",
+              style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 20,
+                  fontWeight: FontWeight.bold)),
+          TextSpan(
+              text: "World !",
+              style: TextStyle(
+                  fontSize: 40,
+                  color: Colors.indigo,
+                  fontWeight: FontWeight.bold))
+        ]))))
         //     child: GridView.builder(
         //   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
         //       crossAxisCount: 2, crossAxisSpacing: 10, mainAxisSpacing: 10),
