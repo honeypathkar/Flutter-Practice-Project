@@ -35,6 +35,10 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  var number1 = TextEditingController();
+  var number2 = TextEditingController();
+  // ignore: prefer_typing_uninitialized_variables
+  var result;
   // var time = DateTime.now();
   // var colors = [
   //   Colors.pink,
@@ -55,10 +59,97 @@ class _MyHomePageState extends State<MyHomePage> {
           backgroundColor: Theme.of(context).colorScheme.inversePrimary,
           title: Text(widget.title),
         ),
-        body: const Center(
-            child: SizedBox(
-                child: FaIcon(FontAwesomeIcons.instagram,
-                    size: 100, color: Colors.red))));
+        body: SizedBox(
+            child: Center(
+          child: Padding(
+              padding: const EdgeInsets.all(15),
+              child: Column(
+                // mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  TextField(
+                    keyboardType: TextInputType.number,
+                    controller: number1,
+                    decoration: InputDecoration(
+                        hintText: "Enter Value 1",
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(11))),
+                  ),
+                  const SizedBox(height: 20),
+                  TextField(
+                    keyboardType: TextInputType.number,
+                    controller: number2,
+                    decoration: InputDecoration(
+                        hintText: "Enter Value 2",
+                        border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(11))),
+                  ),
+                  const SizedBox(height: 20),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      FloatingActionButton(
+                        onPressed: () {
+                          setState(() {
+                            var n1 = int.parse(number1.text.toString());
+                            var n2 = int.parse(number2.text.toString());
+
+                            var sum = n1 + n2;
+                            result = "The addition of $n1 and $n2 is $sum";
+                          });
+                        },
+                        tooltip: "Addition",
+                        child: const Icon(Icons.add),
+                      ),
+                      FloatingActionButton(
+                        onPressed: () {
+                          setState(() {
+                            var n1 = int.parse(number1.text.toString());
+                            var n2 = int.parse(number2.text.toString());
+
+                            var sub = n1 - n2;
+                            result = "The subtraction of $n1 and $n2 is $sub";
+                          });
+                        },
+                        tooltip: "Subtract",
+                        child: const Icon(Icons.remove),
+                      ),
+                      FloatingActionButton(
+                        onPressed: () {
+                          setState(() {
+                            var n1 = int.parse(number1.text.toString());
+                            var n2 = int.parse(number2.text.toString());
+
+                            var multi = n1 * n2;
+                            result =
+                                "The multiplication of $n1 and $n2 is $multi";
+                          });
+                        },
+                        tooltip: "Multiplication",
+                        child: const Icon(Icons.clear),
+                      ),
+                      FloatingActionButton(
+                        onPressed: () {
+                          setState(() {
+                            var n1 = int.parse(number1.text.toString());
+                            var n2 = int.parse(number2.text.toString());
+
+                            var div = n1 / n2;
+                            result = "The divison of $n1 and $n2 is $div";
+                          });
+                        },
+                        tooltip: "Addition",
+                        child: const FaIcon(FontAwesomeIcons.divide),
+                      )
+                    ],
+                  ),
+                  const SizedBox(height: 20),
+                  Text(
+                    "${result ?? ""}",
+                    style: const TextStyle(fontSize: 20),
+                  )
+                ],
+              )),
+        )));
   }
   //     child: GridView.builder(
   //   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
