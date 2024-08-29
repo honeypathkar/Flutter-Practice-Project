@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 // ignore: unused_import
 import 'package:intl/intl.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 void main() {
   runApp(const MyApp());
@@ -54,35 +55,23 @@ class _MyHomePageState extends State<MyHomePage> {
           backgroundColor: Theme.of(context).colorScheme.inversePrimary,
           title: Text(widget.title),
         ),
-        body: Center(
+        body: const Center(
             child: SizedBox(
-                child: RichText(
-                    text: const TextSpan(children: [
-          TextSpan(
-              text: "Hello",
-              style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold)),
-          TextSpan(
-              text: "World !",
-              style: TextStyle(
-                  fontSize: 40,
-                  color: Colors.indigo,
-                  fontWeight: FontWeight.bold))
-        ]))))
-        //     child: GridView.builder(
-        //   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        //       crossAxisCount: 2, crossAxisSpacing: 10, mainAxisSpacing: 10),
-        //   itemBuilder: (context, index) {
-        //     return Container(
-        //       color: colors[index],
-        //     );
-        //   },
-        //   itemCount: colors.length,
-        // )
+                child: FaIcon(FontAwesomeIcons.instagram,
+                    size: 100, color: Colors.red))));
+  }
+  //     child: GridView.builder(
+  //   gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+  //       crossAxisCount: 2, crossAxisSpacing: 10, mainAxisSpacing: 10),
+  //   itemBuilder: (context, index) {
+  //     return Container(
+  //       color: colors[index],
+  //     );
+  //   },
+  //   itemCount: colors.length,
+  // )
 
-        /* GridView.count(
+  /* GridView.count(
           crossAxisCount: 3,
           crossAxisSpacing: 10,
           mainAxisSpacing: 10,
@@ -116,7 +105,4 @@ class _MyHomePageState extends State<MyHomePage> {
             )
           ],
         ) */
-
-        );
-  }
 }
