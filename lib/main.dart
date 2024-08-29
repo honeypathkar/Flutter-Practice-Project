@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 // ignore: unused_import
 import 'package:intl/intl.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:project1/HomePage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,12 +16,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(
-          seedColor: const Color.fromARGB(255, 246, 21, 21),
-        ),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.red.shade400),
         useMaterial3: true,
       ),
-      home: const MyHomePage(title: 'Home'),
+      home: const Homepage(),
     );
   }
 }
